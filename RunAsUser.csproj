@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SavedConfiguration.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="RunAsUser.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="SavedConfiguration.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="RunAsUser.cs">

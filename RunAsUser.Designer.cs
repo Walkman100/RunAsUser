@@ -82,6 +82,10 @@ namespace RunAsUser {
             this.lstMain.TabIndex = 0;
             this.lstMain.UseCompatibleStateImageBehavior = false;
             this.lstMain.View = System.Windows.Forms.View.Details;
+            this.lstMain.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.lstMain_AfterLabelEdit);
+            this.lstMain.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstMain_ColumnClick);
+            this.lstMain.ItemActivate += new System.EventHandler(this.lstMain_ItemActivate);
+            this.lstMain.SelectedIndexChanged += new System.EventHandler(this.lstMain_SelectedIndexChanged);
             // 
             // colName
             // 
@@ -117,6 +121,7 @@ namespace RunAsUser {
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnRemove
             // 
@@ -128,6 +133,7 @@ namespace RunAsUser {
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnRun
             // 
@@ -139,6 +145,7 @@ namespace RunAsUser {
             this.btnRun.TabIndex = 3;
             this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // btnExit
             // 
@@ -150,6 +157,7 @@ namespace RunAsUser {
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // grpEdit
             // 
@@ -387,6 +395,7 @@ namespace RunAsUser {
             this.Name = "RunAsUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Run As User Config";
+            this.Load += new System.EventHandler(this.RunAsUser_Load);
             this.grpEdit.ResumeLayout(false);
             this.grpEdit.PerformLayout();
             this.scMain.Panel1.ResumeLayout(false);

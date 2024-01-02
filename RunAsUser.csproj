@@ -10,6 +10,7 @@
     <AssemblyName>RunAsUser</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <LangVersion>8</LangVersion>
+    <ApplicationManifest>Properties\App.manifest</ApplicationManifest>
     <NoWin32Manifest>false</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
@@ -47,8 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Application.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\App.manifest" />
+    <None Include="Properties\App.config" />
     <None Include=".editorconfig" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

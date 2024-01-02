@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 
 namespace RunAsUser {
     internal static class Helpers {
@@ -34,6 +35,13 @@ namespace RunAsUser {
             rtn.MakeReadOnly();
 
             return rtn;
+        }
+
+        public static IEnumerable<object> GetLocalUserNames() { // uses System.Management
+            var query = new SelectQuery("Win32_UserAccount");
+            var searcher = new ManagementObjectSearcher(query);
+
+            return searcher.Get().Cast<ManagementBaseObject>().Select(envVar => envVar["Name"]);
         }
     }
 }

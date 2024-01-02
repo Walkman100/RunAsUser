@@ -15,7 +15,7 @@ namespace RunAsUser {
                     hasArgs = true,
                     optionalArgs = false,
                     argsInfo = "[config name]",
-                    description = "Run a saved confifuration",
+                    description = "Run a saved configuration",
                     action = commandLineStart,
                 } },
                 { "help", new WalkmanLib.FlagInfo() {
@@ -187,6 +187,40 @@ namespace RunAsUser {
                 updateItem(lstMain.SelectedItems[0], saveToItem());
                 saveItemsToSettings();
             }
+        }
+
+        private void btnEditName_Click(object sender, EventArgs e) {
+            var name = txtEditName.Text;
+            if (WalkmanLib.InputDialog(ref name, theme, "Enter Config Name", this.Text, owner: this) == DialogResult.OK)
+                txtEditName.Text = name;
+        }
+        private void btnEditFile_Click(object sender, EventArgs e) {
+            if (!string.IsNullOrWhiteSpace(txtEditFile.Text))
+                ofdFileSelector.InitialDirectory = System.IO.Path.GetDirectoryName(txtEditFile.Text);
+            ofdFileSelector.FileName = System.IO.Path.GetFileName(txtEditFile.Text);
+            if (ofdFileSelector.ShowDialog() == DialogResult.OK)
+                txtEditFile.Text = ofdFileSelector.FileName;
+        }
+        private void btnEditArgs_Click(object sender, EventArgs e) {
+            var args = txtEditArgs.Text;
+            if (WalkmanLib.InputDialog(ref args, theme, "Enter Program Args", this.Text, owner: this) == DialogResult.OK)
+                txtEditArgs.Text = args;
+        }
+        private void btnEditUsername_Click(object sender, EventArgs e) {
+            var usersList = string.Join(Environment.NewLine, new[] { "Available Users:" }.Concat(Helpers.GetLocalUserNames()));
+            var username = txtEditUsername.Text;
+            if (WalkmanLib.InputDialog(ref username, theme, "Enter Username", this.Text, usersList, owner: this) == DialogResult.OK)
+                txtEditUsername.Text = username;
+        }
+        private void btnEditPassword_Click(object sender, EventArgs e) {
+            var pwd = txtEditPassword.Text;
+            if (WalkmanLib.InputDialog(ref pwd, theme, "Enter Password", this.Text, owner: this) == DialogResult.OK)
+                txtEditPassword.Text = pwd;
+        }
+        private void btnEditDomain_Click(object sender, EventArgs e) {
+            var domain = txtEditDomain.Text;
+            if (WalkmanLib.InputDialog(ref domain, theme, "Enter Domain Name", this.Text, "Leave blank for local machine", owner: this) == DialogResult.OK)
+                txtEditDomain.Text = domain;
         }
     }
 }

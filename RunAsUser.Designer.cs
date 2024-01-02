@@ -197,6 +197,7 @@ namespace RunAsUser {
             this.btnEditDomain.TabIndex = 23;
             this.btnEditDomain.Text = "...";
             this.btnEditDomain.UseVisualStyleBackColor = true;
+            this.btnEditDomain.Click += new System.EventHandler(this.btnEditDomain_Click);
             // 
             // btnEditPassword
             // 
@@ -207,6 +208,7 @@ namespace RunAsUser {
             this.btnEditPassword.TabIndex = 22;
             this.btnEditPassword.Text = "...";
             this.btnEditPassword.UseVisualStyleBackColor = true;
+            this.btnEditPassword.Click += new System.EventHandler(this.btnEditPassword_Click);
             // 
             // btnEditUsername
             // 
@@ -217,6 +219,7 @@ namespace RunAsUser {
             this.btnEditUsername.TabIndex = 21;
             this.btnEditUsername.Text = "...";
             this.btnEditUsername.UseVisualStyleBackColor = true;
+            this.btnEditUsername.Click += new System.EventHandler(this.btnEditUsername_Click);
             // 
             // btnEditArgs
             // 
@@ -227,6 +230,7 @@ namespace RunAsUser {
             this.btnEditArgs.TabIndex = 20;
             this.btnEditArgs.Text = "...";
             this.btnEditArgs.UseVisualStyleBackColor = true;
+            this.btnEditArgs.Click += new System.EventHandler(this.btnEditArgs_Click);
             // 
             // btnEditFile
             // 
@@ -237,6 +241,7 @@ namespace RunAsUser {
             this.btnEditFile.TabIndex = 19;
             this.btnEditFile.Text = "...";
             this.btnEditFile.UseVisualStyleBackColor = true;
+            this.btnEditFile.Click += new System.EventHandler(this.btnEditFile_Click);
             // 
             // btnEditName
             // 
@@ -247,6 +252,7 @@ namespace RunAsUser {
             this.btnEditName.TabIndex = 18;
             this.btnEditName.Text = "...";
             this.btnEditName.UseVisualStyleBackColor = true;
+            this.btnEditName.Click += new System.EventHandler(this.btnEditName_Click);
             // 
             // txtEditDomain
             // 
@@ -256,6 +262,7 @@ namespace RunAsUser {
             this.txtEditDomain.Name = "txtEditDomain";
             this.txtEditDomain.Size = new System.Drawing.Size(170, 20);
             this.txtEditDomain.TabIndex = 17;
+            this.txtEditDomain.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditDomain
             // 
@@ -275,6 +282,7 @@ namespace RunAsUser {
             this.txtEditPassword.PasswordChar = '●';
             this.txtEditPassword.Size = new System.Drawing.Size(170, 20);
             this.txtEditPassword.TabIndex = 15;
+            this.txtEditPassword.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditPassword
             // 
@@ -293,6 +301,7 @@ namespace RunAsUser {
             this.txtEditUsername.Name = "txtEditUsername";
             this.txtEditUsername.Size = new System.Drawing.Size(170, 20);
             this.txtEditUsername.TabIndex = 13;
+            this.txtEditUsername.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditUsername
             // 
@@ -311,6 +320,7 @@ namespace RunAsUser {
             this.txtEditArgs.Name = "txtEditArgs";
             this.txtEditArgs.Size = new System.Drawing.Size(170, 20);
             this.txtEditArgs.TabIndex = 11;
+            this.txtEditArgs.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditArgs
             // 
@@ -329,6 +339,7 @@ namespace RunAsUser {
             this.txtEditFile.Name = "txtEditFile";
             this.txtEditFile.Size = new System.Drawing.Size(170, 20);
             this.txtEditFile.TabIndex = 9;
+            this.txtEditFile.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditFile
             // 
@@ -347,6 +358,7 @@ namespace RunAsUser {
             this.txtEditName.Name = "txtEditName";
             this.txtEditName.Size = new System.Drawing.Size(170, 20);
             this.txtEditName.TabIndex = 7;
+            this.txtEditName.TextChanged += new System.EventHandler(this.txtBoxesChanged);
             // 
             // lblEditName
             // 

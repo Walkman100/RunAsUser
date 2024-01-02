@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RunAsUser")]
-[assembly: AssemblyCopyright("FOSS from Walkman 2023")]
+[assembly: AssemblyCopyright("FOSS from Walkman 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

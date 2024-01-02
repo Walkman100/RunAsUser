@@ -49,6 +49,26 @@
   <ItemGroup>
     <Compile Include="Properties\Application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WalkmanLib\CustomInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WalkmanLib\CustomInputDialog.Designer.cs">
+      <DependentUpon>CustomInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WalkmanLib\CustomMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WalkmanLib\CustomMsgBox.Designer.cs">
+      <DependentUpon>CustomMsgBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WalkmanLib\CustomMsgBox.resx">
+      <DependentUpon>CustomMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="WalkmanLib\WalkmanLibArgHandler.cs" />
+    <Compile Include="WalkmanLib\WalkmanLibDotNet.cs" />
+    <Compile Include="WalkmanLib\WalkmanLibExtensions.cs" />
+    <Compile Include="WalkmanLib\WalkmanLibTheming.cs" />
+    <Compile Include="WalkmanLib\WalkmanLibThemingMsgBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.manifest" />

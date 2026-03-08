@@ -32,10 +32,9 @@ namespace RunAsUser {
 
             if (WalkmanLib.GetDarkThemeEnabled() ?? false)
                 theme = WalkmanLib.Theme.Dark;
-            lstMain.DrawColumnHeader += WalkmanLib.CustomPaint.ListView_DrawCustomColumnHeader;
-            lstMain.DrawItem += WalkmanLib.CustomPaint.ListView_DrawDefaultItem;
-            lstMain.DrawSubItem += WalkmanLib.CustomPaint.ListView_DrawDefaultSubItem;
-            lstMain.Tag = theme.ListViewColumnColors;
+            WalkmanLib.InitCustomRenderers(this.Controls);
+            WalkmanLib.SetPreferredAppMode(theme.SystemAppMode);
+            WalkmanLib.ApplyThemeRenderer(theme, this.Controls);
             WalkmanLib.ApplyTheme(theme, this, true);
             Settings.Init();
             lstMain.Items.AddRange(Settings.SavedConfigurations.Select(createItem).ToArray());

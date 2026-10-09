@@ -84,7 +84,8 @@ namespace RunAsUser {
         private static void SaveSettings() {
             if (!loaded)
                 return;
-            using (var writer = XmlWriter.Create(settingsPath, new XmlWriterSettings() { Indent = true })) {
+            using (var fs = new StreamWriter(settingsPath))
+            using (var writer = XmlWriter.Create(fs, new XmlWriterSettings() { Indent = true })) {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("RunAsUser");
 
@@ -107,6 +108,9 @@ namespace RunAsUser {
 
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
+
+                writer.Flush();
+                fs.WriteLine();
             }
         }
     }

@@ -36,6 +36,23 @@ namespace RunAsUser {
             WalkmanLib.SetPreferredAppMode(theme.SystemAppMode);
             WalkmanLib.ApplyThemeRenderer(theme, this.Controls);
             WalkmanLib.ApplyTheme(theme, this, true);
+            bool standardButtons = theme.ButtonFlatStyle == FlatStyle.Standard;
+            if (!standardButtons) {
+                var size = new System.Drawing.Size(26, 21);
+                btnEditName.Size = size;
+                btnEditName.Location = new System.Drawing.Point(btnEditName.Location.X, btnEditName.Location.Y + 1);
+                btnEditFile.Size = size;
+                btnEditFile.Location = new System.Drawing.Point(btnEditFile.Location.X, btnEditFile.Location.Y + 1);
+                btnEditArgs.Size = size;
+                btnEditArgs.Location = new System.Drawing.Point(btnEditArgs.Location.X, btnEditArgs.Location.Y + 1);
+                btnEditUsername.Size = size;
+                btnEditUsername.Location = new System.Drawing.Point(btnEditUsername.Location.X, btnEditUsername.Location.Y + 1);
+                btnEditPassword.Size = size;
+                btnEditPassword.Location = new System.Drawing.Point(btnEditPassword.Location.X, btnEditPassword.Location.Y + 1);
+                btnEditDomain.Size = size;
+                btnEditDomain.Location = new System.Drawing.Point(btnEditDomain.Location.X, btnEditDomain.Location.Y + 1);
+            }
+
             Settings.Init();
             lstMain.Items.AddRange(Settings.SavedConfigurations.Select(createItem).ToArray());
 
@@ -189,7 +206,7 @@ namespace RunAsUser {
         }
 
         private void btnEditName_Click(object sender, EventArgs e) {
-            var name = txtEditName.Text;
+            string name = txtEditName.Text;
             if (WalkmanLib.InputDialog(ref name, theme, "Enter Config Name", this.Text, owner: this) == DialogResult.OK)
                 txtEditName.Text = name;
         }
@@ -201,23 +218,23 @@ namespace RunAsUser {
                 txtEditFile.Text = ofdFileSelector.FileName;
         }
         private void btnEditArgs_Click(object sender, EventArgs e) {
-            var args = txtEditArgs.Text;
+            string args = txtEditArgs.Text;
             if (WalkmanLib.InputDialog(ref args, theme, "Enter Program Args", this.Text, owner: this) == DialogResult.OK)
                 txtEditArgs.Text = args;
         }
         private void btnEditUsername_Click(object sender, EventArgs e) {
-            var usersList = string.Join(Environment.NewLine, new[] { "Available Users:" }.Concat(Helpers.GetLocalUserNames()));
-            var username = txtEditUsername.Text;
+            string usersList = string.Join(Environment.NewLine, new[] { "Available Users:" }.Concat(Helpers.GetLocalUserNames()));
+            string username = txtEditUsername.Text;
             if (WalkmanLib.InputDialog(ref username, theme, "Enter Username", this.Text, usersList, owner: this) == DialogResult.OK)
                 txtEditUsername.Text = username;
         }
         private void btnEditPassword_Click(object sender, EventArgs e) {
-            var pwd = txtEditPassword.Text;
+            string pwd = txtEditPassword.Text;
             if (WalkmanLib.InputDialog(ref pwd, theme, "Enter Password", this.Text, owner: this) == DialogResult.OK)
                 txtEditPassword.Text = pwd;
         }
         private void btnEditDomain_Click(object sender, EventArgs e) {
-            var domain = txtEditDomain.Text;
+            string domain = txtEditDomain.Text;
             if (WalkmanLib.InputDialog(ref domain, theme, "Enter Domain Name", this.Text, "Leave blank for local machine", owner: this) == DialogResult.OK)
                 txtEditDomain.Text = domain;
         }

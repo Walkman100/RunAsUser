@@ -18,6 +18,12 @@ namespace RunAsUser {
                     description = "Run a saved configuration",
                     action = commandLineStart,
                 } },
+                { "exit", new WalkmanLib.FlagInfo() {
+                    shortFlag = 'x',
+                    hasArgs = false,
+                    description = "Exit after running configuration",
+                    action = (_) => exitAfterRunning = true || true,
+                } },
                 { "help", new WalkmanLib.FlagInfo() {
                     shortFlag = 'h',
                     description = "Show Help",
@@ -82,6 +88,7 @@ namespace RunAsUser {
             return true;
         }
 
+        private bool exitAfterRunning = false;
         private bool commandLineStart(string name) {
             var config = Settings.SavedConfigurations.FirstOrDefault(c => c.Name == name);
             if (config == null) {
@@ -93,8 +100,10 @@ namespace RunAsUser {
             }
             Helpers.StartConfig(config);
 
-            Application.Exit();
-            Environment.Exit(0);
+            if (exitAfterRunning) {
+                Application.Exit();
+                Environment.Exit(0);
+            }
             return true;
         }
 
